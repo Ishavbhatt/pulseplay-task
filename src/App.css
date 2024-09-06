@@ -80,3 +80,15 @@
 .transparent {
   background: transparent;
 }
+.common_btn {
+  background-color: #20B2AA;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  padding: 0 20px;
+  height: 35px;
+  cursor: pointer;
+}
+.common_btn:hover {
+  background-color: #0eb0a7;
+}

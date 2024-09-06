@@ -68,16 +68,17 @@ const TodoList = () => {
         <>
             <div className={styles.todo_main}>
                 <h2 className="poppins-semibold">Your To-Dos</h2>
-                <form onSubmit={handleSaveTodo}>
+                <form onSubmit={handleSaveTodo} className={styles.add_todo_form}>
                     <input
                         type="text"
                         value={newTodo}
                         onChange={(e) => setNewTodo(e.target.value)}
                         placeholder={editingTodo ? "Edit To-Do" : "Add a new To-Do"}
                     />
-                    <button type="submit">{editingTodo ? "Save" : "Add"}</button>
-                    {error && <p style={{ color: "red" }}>{error}</p>}
-                </form>
+                    <button type="submit" className="common_btn">{editingTodo ? "Save" : "Add"}</button>
+                    </form>
+                {error && <p style={{ color: "red", fontSize: '12px' }}>{error}</p>}
+
 
                 <ul className={styles.todo_lists}>
                     {todos.map((todo) => (

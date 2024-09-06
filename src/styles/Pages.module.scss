@@ -76,6 +76,7 @@
     .todo_lists {
         .todo_lists_item {
             list-style: none;
+
             button {
                 height: 35px;
                 width: 35px;
@@ -92,6 +93,22 @@
                     color: $white;
                 }
             }
+        }
+    }
+
+    .add_todo_form {
+        display: flex;
+        input {
+            height: 35px;
+            width: -webkit-fill-available;
+            padding: 0 10px;
+            border: none;
+            font-size: 12px;
+            background-color: #eee;
+            color: #888;
+            outline: none;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
         }
     }
 }
