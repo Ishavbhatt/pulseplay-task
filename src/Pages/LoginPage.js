@@ -28,8 +28,6 @@ const LoginPage = () => {
     return (
         <>
             <div className={styles.login_page}>
-
-
                 <form onSubmit={handleLoginForm} autoComplete="off">
                     <h3 className="poppins-semibold">Login</h3>
                     {error && <p style={{ color: "red" }} className="poppins-regular">{error}</p>}

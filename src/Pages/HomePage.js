@@ -26,10 +26,10 @@ const HomePage = () => {
                 <>
                     <div className="header_main">
                         <div className="container">
-                            <header className="flex align-center justify-between">
-                                <p className="w-30">To Do App</p>
-                                <div className="flex align-center w-70 justify-end">
-                                    <p>Welcome, {loggedInUser.email}!</p>
+                            <header className="header flex align-center justify-between">
+                                <p className="w-30 todo_logo poppins-semibold">To Do App</p>
+                                <div className="todo_right flex align-center w-70 justify-end">
+                                    <p>Welcome, <strong>{loggedInUser.email}!</strong></p>
                                     <button onClick={handleLogout} className="logout_btn">Logout</button>
                                 </div>
                             </header>

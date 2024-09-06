@@ -76,34 +76,37 @@ const TodoList = () => {
                         placeholder={editingTodo ? "Edit To-Do" : "Add a new To-Do"}
                     />
                     <button type="submit" className="common_btn">{editingTodo ? "Save" : "Add"}</button>
-                    </form>
+                </form>
                 {error && <p style={{ color: "red", fontSize: '12px' }}>{error}</p>}
-
 
                 <ul className={styles.todo_lists}>
                     {todos.map((todo) => (
                         <li key={todo.id} className={styles.todo_lists_item}>
-                            <span
-                                style={{
-                                    textDecoration: todo.completed ? "line-through" : "none",
-                                }}
-                            >
-                                {todo.task}
-                            </span>
-                            <button onClick={() => toggleTodo(todo.id)}>
-                                {todo.completed ? "Undo" : "Done"}
-                            </button>
-                            <button
-                                onClick={() => editTodo(todo)}
-                                className="border-none transparent">
-                                <FaEdit style={{ fontSize: '16px'}}
-                                />
-                            </button>
-                            <button
-                                onClick={() => deleteTodo(todo.id)}
-                                className="border-none transparent">
-                                <MdDelete style={{ fontSize: '16px'}} />
-                            </button>
+                            <div>
+                                <span
+                                      className={`poppins-regular ${styles.todo_lists_item_text} ${todo.completed ? styles.completed : ''}`}
+                                >
+                                    {todo.task}
+                                </span>
+                            </div>
+                            <div>
+                                <button onClick={() => toggleTodo(todo.id)}
+                                    className={styles.complete_btn}>
+                                    {todo.completed ? "Undo" : "Done"}
+                                </button>
+                                <button
+                                    onClick={() => editTodo(todo)}
+                                    className={styles.edit_delete_btn}>
+                                    <FaEdit style={{ fontSize: '16px' }}
+                                    />
+                                </button>
+                                <button
+                                    onClick={() => deleteTodo(todo.id)}
+                                    className={styles.edit_delete_btn}
+                                >
+                                    <MdDelete style={{ fontSize: '16px' }} />
+                                </button>
+                            </div>
                         </li>
                     ))}
                 </ul>
