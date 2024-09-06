@@ -24,24 +24,31 @@ const HomePage = () => {
         <>
             {loggedInUser ? (
                 <>
-                    <div className="container">
-                        <header className="flex align-center justify-between">
-                            <p>To Do App</p>
-                            <div className="flex align-center">
-                                <p>Welcome, {loggedInUser.email}!</p>
-                                <button onClick={handleLogout}>Logout</button>
-                            </div>
-                        </header>
-                        <TodoList />
+                    <div className="header_main">
+                        <div className="container">
+                            <header className="flex align-center justify-between">
+                                <p className="w-30">To Do App</p>
+                                <div className="flex align-center w-70 justify-end">
+                                    <p>Welcome, {loggedInUser.email}!</p>
+                                    <button onClick={handleLogout} className="logout_btn">Logout</button>
+                                </div>
+                            </header>
+                        </div>
                     </div>
+
+                    <TodoList />
+
                 </>
             ) : (
                 <>
-                    <div className="container">
-
-                        <p>To Do App</p>
-                        <div>
-                            <a href="/login">Login</a>
+                    <div className="header_main">
+                        <div className="container">
+                            <header className="flex align-center justify-between">
+                                <p className="w-30">To Do App</p>
+                                <div className="flex align-center w-70 justify-end">
+                                    <button onClick={() => navigate('/login')} className="logout_btn">Login</button>
+                                </div>
+                            </header>
                         </div>
                     </div>
                 </>

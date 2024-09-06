@@ -1,0 +1,97 @@
+@import './settings/_settings';
+
+.login_page {
+    background-color: $bg-color;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    form {
+        min-width: 400px;
+        background-color: $white;
+        padding: 20px 10px;
+
+        h3 {
+            font-size: 26px;
+            color: #222222;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form_group {
+            margin-bottom: 20px;
+
+            label {
+                font-size: 12px;
+                margin-bottom: 6px;
+                display: block;
+            }
+
+            input {
+                // padding: 20px 10px;
+                height: 35px;
+                width: -webkit-fill-available;
+                padding: 0 10px;
+                border: none;
+                font-size: 12px;
+                background-color: #eee;
+                color: #888;
+                outline: none;
+                font-family: "Poppins", sans-serif;
+                font-weight: 400;
+            }
+
+        }
+
+        button {
+            background-color: $primary-color;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            color: $white;
+            height: 35px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #0eb0a7;
+            }
+        }
+    }
+}
+
+.todo_main {
+    max-width: 400px;
+    margin: 20px auto;
+
+    h2 {
+        font-size: 26px;
+        color: #222222;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .todo_lists {
+        .todo_lists_item {
+            list-style: none;
+            button {
+                height: 35px;
+                width: 35px;
+                background-color: $bg-color;
+                border-radius: 4px;
+                border: 3px;
+                margin-left: 5px;
+                cursor: pointer;
+                transition: .5s;
+                color: #222222;
+
+                &:hover {
+                    background-color: $primary-color;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

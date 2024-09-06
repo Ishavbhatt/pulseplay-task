@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import styles from '../styles/Pages.module.scss';
 
 const TodoList = () => {
     const [todos, setTodos] = useState([]);
@@ -13,7 +16,6 @@ const TodoList = () => {
         const storedTodos = JSON.parse(localStorage.getItem(`${loggedInUser.email}-todos`)) || [];
         setTodos(storedTodos);
     }, []);
-
 
     const handleSaveTodo = (e) => {
         e.preventDefault();
@@ -48,7 +50,6 @@ const TodoList = () => {
         setNewTodo(todo.task);
     };
 
-
     const deleteTodo = (id) => {
         const updatedTodos = todos.filter((todo) => todo.id !== id);
         setTodos(updatedTodos);
@@ -65,36 +66,47 @@ const TodoList = () => {
 
     return (
         <>
-            <h2>Your To-Dos</h2>
-            <form onSubmit={handleSaveTodo}>
-                <input
-                    type="text"
-                    value={newTodo}
-                    onChange={(e) => setNewTodo(e.target.value)}
-                    placeholder={editingTodo ? "Edit To-Do" : "Add a new To-Do"}
-                />
-                <button type="submit">{editingTodo ? "Save" : "Add"}</button>
-                {error && <p style={{ color: "red" }}>{error}</p>}
-            </form>
+            <div className={styles.todo_main}>
+                <h2 className="poppins-semibold">Your To-Dos</h2>
+                <form onSubmit={handleSaveTodo}>
+                    <input
+                        type="text"
+                        value={newTodo}
+                        onChange={(e) => setNewTodo(e.target.value)}
+                        placeholder={editingTodo ? "Edit To-Do" : "Add a new To-Do"}
+                    />
+                    <button type="submit">{editingTodo ? "Save" : "Add"}</button>
+                    {error && <p style={{ color: "red" }}>{error}</p>}
+                </form>
 
-            <ul>
-                {todos.map((todo) => (
-                    <li key={todo.id}>
-                        <span
-                            style={{
-                                textDecoration: todo.completed ? "line-through" : "none",
-                            }}
-                        >
-                            {todo.task}
-                        </span>
-                        <button onClick={() => toggleTodo(todo.id)}>
-                            {todo.completed ? "Undo" : "Done"}
-                        </button>
-                        <button onClick={() => editTodo(todo)}>Edit</button>
-                        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-                    </li>
-                ))}
-            </ul>
+                <ul className={styles.todo_lists}>
+                    {todos.map((todo) => (
+                        <li key={todo.id} className={styles.todo_lists_item}>
+                            <span
+                                style={{
+                                    textDecoration: todo.completed ? "line-through" : "none",
+                                }}
+                            >
+                                {todo.task}
+                            </span>
+                            <button onClick={() => toggleTodo(todo.id)}>
+                                {todo.completed ? "Undo" : "Done"}
+                            </button>
+                            <button
+                                onClick={() => editTodo(todo)}
+                                className="border-none transparent">
+                                <FaEdit style={{ fontSize: '16px'}}
+                                />
+                            </button>
+                            <button
+                                onClick={() => deleteTodo(todo.id)}
+                                className="border-none transparent">
+                                <MdDelete style={{ fontSize: '16px'}} />
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </>
     )
 }
